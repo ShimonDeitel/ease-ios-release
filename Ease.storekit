@@ -1,0 +1,40 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "EASE_STOREKIT_CONFIG",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : true,
+      "internalID" : "ease_pro_unlock_id",
+      "localizations" : [
+        {
+          "description" : "Unlock custom breathing patterns, more presets, your full history & all-time stats, extra Calm Card styles and the streak widget. One-time purchase.",
+          "displayName" : "Ease Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "ease_pro_unlock",
+      "referenceName" : "Ease Pro Unlock",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

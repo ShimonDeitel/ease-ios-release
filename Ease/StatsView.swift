@@ -15,15 +15,24 @@ struct StatsView: View {
                 ScrollView {
                     LazyVGrid(columns: cols, spacing: 12) {
                         MetricTile(value: "\(appModel.currentStreak)", label: "Day streak")
-                        MetricTile(value: "\(appModel.longestStreak)", label: "Best streak")
+                        if store.isPro {
+                            MetricTile(value: "\(appModel.longestStreak)", label: "Best streak")
+                        } else {
+                            LockedMetricTile(label: "Best streak") { Haptics.tap(); showPaywall = true }
+                        }
                         MetricTile(value: "\(appModel.sessionsThisWeek)", label: "This week")
                         MetricTile(value: "\(appModel.totalSessions)", label: "Sessions")
                     }
                     .padding(.horizontal)
                     .padding(.top, 8)
 
-                    MetricTile(value: "\(appModel.totalMinutes)", label: "Total minutes of calm")
-                        .padding(.horizontal)
+                    if store.isPro {
+                        MetricTile(value: "\(appModel.totalMinutes)", label: "Total minutes of calm")
+                            .padding(.horizontal)
+                    } else {
+                        LockedMetricTile(label: "Total minutes of calm") { Haptics.tap(); showPaywall = true }
+                            .padding(.horizontal)
+                    }
 
                     historySection.padding(.top, 6)
                 }
@@ -89,5 +98,25 @@ struct StatsView: View {
             }
         }
         .padding(.bottom, 30)
+    }
+}
+
+/// A Pro-locked metric tile: hides the value behind a lock and opens the paywall on tap.
+private struct LockedMetricTile: View {
+    let label: String
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 4) {
+                Image(systemName: "lock.fill")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(Color.easeAccent)
+                Text(label).font(.caption).foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 18)
+            .background(Color.easeCard, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        }
+        .buttonStyle(.plain)
     }
 }

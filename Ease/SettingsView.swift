@@ -97,7 +97,7 @@ struct SettingsView: View {
             }
         } footer: {
             if !store.isPro {
-                Text("One-time purchase. Custom patterns, more presets, full history & the streak widget.")
+                Text("One-time purchase. Custom patterns, more presets & your full history and all-time stats.")
             }
         }
     }

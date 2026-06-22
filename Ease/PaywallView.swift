@@ -9,7 +9,7 @@ struct PaywallView: View {
     private let benefits: [(String, String, String)] = [
         ("slider.horizontal.3", "Custom patterns", "Build your own rhythm — set every inhale, hold and exhale."),
         ("square.stack.3d.up.fill", "More presets", "Unwind, Resonance and Centered — for sleep, focus and reset."),
-        ("chart.bar.fill", "Full history & stats", "Every session, your best streak and all-time minutes of calm."),
+        ("chart.bar.fill", "Full history & best streak", "Every past session and your all-time best streak, in one place."),
         ("square.and.arrow.up.fill", "Share your calm", "Send a Calm Card with your streak to keep yourself going.")
     ]
 
